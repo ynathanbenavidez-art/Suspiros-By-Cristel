@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Suspiros By Cristel — Repostería fina para endulzar tus mejores momentos. Catálogo, envíos y pedidos por WhatsApp." />
+  <title>Suspiros By Cristel | Repostería Fina</title>
+
+  <!-- (Opcional) Open Graph para compartir en WhatsApp/Redes -->
+  <meta property="og:title" content="Suspiros By Cristel | Repostería Fina" />
+  <meta property="og:description" content="Endulzando tus mejores momentos. Ver catálogo, métodos de envío y hacer pedidos por WhatsApp." />
+  <!-- <meta property="og:image" content="https://TU-DOMINIO/cover.jpg" /> -->
+
+  <style>
+    :root{
+      --bg: #fffaf3;
+      --surface: rgba(255,255,255,.78);
+      --card: rgba(255,255,255,.92);
+      --text: #3f2f33;
+      --muted: #6b5a60;
+
+      --pink: #f8c8d6;
+      --pink-2:#ffd7e4;
+      --lav: #d7bde2;
+      --lav-2:#c9a9d7;
+      --sky: #aed6f1;
+      --mint:#bfe7d3;
+
+      --shadow: 0 14px 40px rgba(25, 20, 20, 0.12);
+      --shadow-soft: 0 10px 30px rgba(25, 20, 20, 0.08);
+
+      --radius-xl: 22px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --max: 1080px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% 0%, rgba(248,200,214,.55), transparent 60%),
+        radial-gradient(1000px 700px at 90% 10%, rgba(174,214,241,.55), transparent 55%),
+        radial-gradient(900px 600px at 50% 100%, rgba(191,231,211,.45), transparent 55%),
+        var(--bg);
+      line-height: 1.45;
+    }
+
+    a{ color: inherit; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 250, 243, .62);
+      border-bottom: 1px solid rgba(63,47,51,.08);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      user-select:none;
+    }
+    .logo{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--pink), var(--lav));
+      box-shadow: 0 10px 20px rgba(215,189,226,.35);
+      display:grid; place-items:center;
+      font-weight: 800;
+      color: rgba(63,47,51,.9);
+    }
+    .brand-title{
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .brand-title strong{
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      letter-spacing: .3px;
+      font-size: 1.05rem;
+    }
+    .brand-title span{
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .nav{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      font-size: .92rem;
+      color: var(--muted);
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav a:hover{ background: rgba(215,189,226,.18); color: var(--text); }
+
+    /* Hero */
+    header.hero{
+      padding: 38px 0 12px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .hero-card{
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.62));
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(63,47,51,.09);
+      overflow:hidden;
+      position: relative;
+      padding: 28px;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-120px -100px auto auto;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle at 30% 30%, rgba(248,200,214,.9), transparent 60%),
+                  radial-gradient(circle at 70% 70%, rgba(174,214,241,.8), transparent 60%);
+      filter: blur(2px);
+      opacity: .9;
+      transform: rotate(12deg);
+    }
+    .hero-content{
+      position: relative;
+      z-index: 1;
+    }
+    h1{
+      margin: 0 0 8px;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      letter-spacing: .8px;
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 62ch;
+    }
+    .pill-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0 18px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(215,189,226,.16);
+      border: 1px solid rgba(63,47,51,.08);
+      color: rgba(63,47,51,.86);
+      font-size: .92rem;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--lav));
+      box-shadow: 0 6px 14px rgba(215,189,226,.45);
+      flex: 0 0 auto;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(63,47,51,.10);
+      text-decoration:none;
+      font-weight: 700;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+      will-change: transform;
+      min-height: 44px;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      background: linear-gradient(135deg, var(--lav), var(--pink));
+      color: rgba(63,47,51,.95);
+      box-shadow: 0 14px 28px rgba(215,189,226,.28);
+    }
+    .btn-primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(215,189,226,.35);
+      border-color: rgba(63,47,51,.16);
+    }
+
+    .btn-ghost{
+      background: rgba(255,255,255,.6);
+      color: var(--text);
+    }
+    .btn-ghost:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+      background: rgba(255,255,255,.75);
+    }
+
+    .btn-whatsapp{
+      background: #25D366;
+      color: #0b2b15;
+      border-color: rgba(0,0,0,.06);
+      box-shadow: 0 14px 28px rgba(37,211,102,.22);
+    }
+    .btn-whatsapp:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(37,211,102,.28);
+    }
+
+    .side-card{
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.58));
+      border: 1px solid rgba(63,47,51,.09);
+      box-shadow: var(--shadow-soft);
+      padding: 22px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .side-card h2{
+      margin:0;
+      font-size: 1.1rem;
+      color: rgba(63,47,51,.92);
+    }
+    .side-card p{
+      margin:0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .mini{
+      border-radius: 16px;
+      padding: 12px;
+      border: 1px solid rgba(63,47,51,.08);
+      background: rgba(255,255,255,.55);
+      min-height: 68px;
+    }
+    .mini strong{
+      display:block;
+      font-size: .92rem;
+      margin-bottom: 6px;
+    }
+    .mini span{
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    /* Main sections */
+    main{ padding: 14px 0 34px; }
+    .section-title{
+      margin: 22px 0 10px;
+      font-size: 1.35rem;
+      letter-spacing:.2px;
+    }
+    .section-sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card{
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid rgba(63,47,51,.09);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .icon{
+      width: 44px; height: 44px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(174,214,241,.55), rgba(215,189,226,.45));
+      border: 1px solid rgba(63,47,51,.08);
+      flex: 0 0 auto;
+    }
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+    }
+    .card p{
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+    .card-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(63,47,51,.08);
+      background: rgba(255,255,255,.30);
+      backdrop-filter: blur(10px);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:center;
+    }
+    .fineprint{
+      color: var(--muted);
+      font-size: .9rem;
+      margin: 6px 0 0;
+    }
+
+    /* Accessibility */
+    :focus-visible{
+      outline: 3px solid rgba(174,214,241,.85);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .footer-grid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      .grid{ grid-template-columns: 1fr; }
+      .nav{ display:none; } /* simple: ocultar nav en móvil */
+      header.hero{ padding-top: 22px; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <div class="logo" aria-hidden="true">SB</div>
+        <div class="brand-title">
+          <strong>Suspiros By Cristel</strong>
+          <span>Repostería fina</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegación">
+        <a href="#info">Información</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#envios">Envíos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header id="inicio" class="hero">
+    <div class="wrap hero-grid">
+      <section class="hero-card" aria-label="Presentación">
+        <div class="hero-content">
+          <h1>Suspiros By Cristel</h1>
+          <p class="subtitle">Endulzando tus mejores momentos con repostería fina hecha con detalle, amor y buen gusto.</p>
+
+          <div class="pill-row" aria-label="Beneficios">
+            <div class="pill"><span class="dot" aria-hidden="true"></span>Pedidos para eventos</div>
+            <div class="pill"><span class="dot" aria-hidden="true"></span>Entrega según zona</div>
+            <div class="pill"><span class="dot" aria-hidden="true"></span>Atención por WhatsApp</div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="catalogo.pdf" target="_blank" rel="noopener">
+              <!-- icon -->
+              <span aria-hidden="true">🍰</span>
+              Ver catálogo
+            </a>
+            <a class="btn btn-ghost" href="envios.pdf" target="_blank" rel="noopener">
+              <span aria-hidden="true">🚚</span>
+              Ver envíos
+            </a>
+            <a class="btn btn-whatsapp" href="https://wa.me/50662191165" target="_blank" rel="noopener">
+              <span aria-hidden="true">💬</span>
+              Pedir por WhatsApp
+            </a>
+          </div>
+
+          <p class="fineprint">Tip: subí <code>catalogo.pdf</code> y <code>envios.pdf</code> al mismo repositorio para que abran sin errores.</p>
+        </div>
+      </section>
+
+      <aside class="side-card" aria-label="Resumen">
+        <div>
+          <h2>Lo esencial, en un vistazo</h2>
+          <p>Encontrá rápido lo que necesitás para cotizar y pedir.</p>
+
+          <div class="mini-grid" role="list" aria-label="Atajos">
+            <div class="mini" role="listitem">
+              <strong>Catálogo</strong>
+              <span>Productos y opciones</span>
+            </div>
+            <div class="mini" role="listitem">
+              <strong>Envíos</strong>
+              <span>Zonas y tarifas</span>
+            </div>
+            <div class="mini" role="listitem">
+              <strong>Pedidos</strong>
+              <span>Por WhatsApp</span>
+            </div>
+            <div class="mini" role="listitem">
+              <strong>Eventos</strong>
+              <span>Encargos especiales</span>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn-ghost" href="#info">
+          <span aria-hidden="true">⬇️</span>
+          Ver información
+        </a>
+      </aside>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="wrap" id="info">
+    <h2 class="section-title">Nuestra información</h2>
+    <p class="section-sub">Explorá nuestras creaciones y revisá cómo llegan hasta tu puerta. Mantuvimos tus 2 secciones (Catálogo y Envíos), pero con tarjetas más claras y acciones directas.</p>
+
+    <div class="grid" aria-label="Secciones principales">
+      <!-- Catálogo -->
+      <section class="card" id="catalogo">
+        <div class="icon" aria-hidden="true">📄</div>
+        <div>
+          <h3>Catálogo de productos</h3>
+          <p>Visualizá la lista completa de opciones para cumpleaños, eventos y antojos.</p>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="catalogo.pdf" target="_blank" rel="noopener">
+              <span aria-hidden="true">🍰</span> Ver catálogo
+            </a>
+            <a class="btn btn-ghost" href="https://wa.me/50662191165" target="_blank" rel="noopener">
+              <span aria-hidden="true">✅</span> Cotizar
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Envíos -->
+      <section class="card" id="envios">
+        <div class="icon" aria-hidden="true">📦</div>
+        <div>
+          <h3>Métodos de envío</h3>
+          <p>Conocé zonas de cobertura, tarifas y tiempos de entrega para tus pedidos.</p>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="envios.pdf" target="_blank" rel="noopener">
+              <span aria-hidden="true">🚚</span> Ver envíos
+            </a>
+            <a class="btn btn-ghost" href="https://wa.me/50662191165" target="_blank" rel="noopener">
+              <span aria-hidden="true">📍</span> Consultar zona
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="wrap footer-grid">
+      <div>
+        <strong style="font-size:1.05rem;">¿Se te antojó algo o querés un encargo especial?</strong>
+        <p class="fineprint">Escribinos y te ayudamos con opciones, fechas y entrega.</p>
+      </div>
+      <div style="display:flex; gap:12px; justify-content:flex-end; flex-wrap:wrap;">
+        <a class="btn btn-whatsapp" href="https://wa.me/50662191165" target="_blank" rel="noopener">
+          <span aria-hidden="true">💬</span> WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#inicio">
+          <span aria-hidden="true">⬆️</span> Volver arriba
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
