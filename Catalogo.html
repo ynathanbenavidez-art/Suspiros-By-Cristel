@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo | Suspiros By Cristel</title>
+  <style>
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:#fffaf3;color:#3f2f33}
+    .wrap{max-width:1000px;margin:0 auto;padding:24px}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    a{color:inherit}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
+         border:1px solid rgba(63,47,51,.12);text-decoration:none;font-weight:700;background:#fff}
+    .btn:hover{filter:brightness(.98)}
+    h1{margin:10px 0 6px;font-family:Georgia,serif}
+    p{color:#6b5a60;margin:0 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card{background:#fff;border:1px solid rgba(63,47,51,.10);border-radius:18px;padding:14px}
+    .card strong{display:block;margin-bottom:6px}
+    .price{color:#6b5a60;font-size:.95rem}
+    @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:600px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html" class="btn">⬅️ Volver</a>
+      <a class="btn" href="https://wa.me/50662191165" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
+    </header>
+
+    <h1>Catálogo</h1>
+    <p>Elegí una categoría. Editá estos cards con tus productos reales.</p>
+
+    <section class="grid" aria-label="Productos">
+      <div class="card">
+        <strong>Cheesecake</strong>
+        <div class="price">Desde ₡___</div>
+        <div class="price">Sabores: ___</div>
+      </div>
+      <div class="card">
+        <strong>Brownies</strong>
+        <div class="price">Desde ₡___</div>
+        <div class="price">Opciones: ___</div>
+      </div>
+      <div class="card">
+        <strong>Cupcakes</strong>
+        <div class="price">Desde ₡___</div>
+        <div class="price">Docena: ₡___</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
